@@ -1,0 +1,35 @@
+<table border="1px" class="table1">
+    <th> Name </th>
+    <th> Total time in month </th>
+    <th> Actions </th>
+
+    <ng-container *ngFor="let employee of employees"> 
+        <ng-container *ngIf = "employee.name != null; else elseDone">
+            <tr [ngClass] = "{'grayBackground' : employee.monthlyWorkingHours < 100}">
+                <td>
+                    {{employee.name}}
+                </td>
+
+                <td>
+                    {{employee.monthlyWorkingHours}}
+                </td>
+
+                <td>
+                    <a href="#"> Edit </a>
+                </td>
+            </tr>
+        </ng-container>
+        <ng-template #elseDone>
+            
+        </ng-template>
+    </ng-container>
+    
+</table>
+
+<br/>
+<br/>
+
+<google-chart [data]="pieChart">
+
+</google-chart>
+
